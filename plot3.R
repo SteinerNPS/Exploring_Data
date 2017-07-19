@@ -1,5 +1,4 @@
-setwd("C:/Users/mhsteiner/Documents/R/Week 4_Exploring_data")
-
+library(ggplot2)
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
@@ -18,5 +17,8 @@ for (type in types){
     year_totals <- rbind(year_totals, data.frame(year, total, type))
   }
 }
+
+#png(filename = "plot3.png", height = 480, width = 480)
 p <- qplot(year_totals$year, year_totals$total, data = year_totals ,colour = type, size = I(2.5), main = "Total Emissions per year in Baltimore City", xlab = "Year", ylab = "Total PM2.5 emmitted (tons)")
 p
+ggsave("plot3.png", plot = p, device = "png", width = 6.66, height = 6.66, units = "in")

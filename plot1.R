@@ -1,5 +1,3 @@
-setwd("C:/Users/mhsteiner/Documents/R/Week 4_Exploring_data")
-
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
@@ -13,4 +11,7 @@ for(year in years){
   total <- sum(tempdata$Emissions)
   year_totals <- rbind(year_totals, data.frame(year, total/1000000))
 }
+
+png(filename = "plot1.png", height = 480, width = 480)
 plot(year_totals$year, year_totals$total, cex = 2, pch = 16, col = "red", ylab = "Total PM2.5 emmitted (million tons)", xlab = "Year", main = "Total Emmision From All Sources")
+dev.off()
