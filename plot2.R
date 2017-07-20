@@ -13,5 +13,5 @@ for(year in years){
 }
 
 png(filename = "plot2.png", height = 480, width = 480)
-plot(year_totals$year, year_totals$total, cex =2, pch = 16, col = "red", ylab = "Total PM2.5 emmitted (thousand tons)", xlab = "Year", main = "Total Emmision from All Sources in Baltimore City")
+plot(year_totals$year, year_totals$total, cex =2, pch = 16,  type = "b", col = "red", ylab = "Total PM2.5 emmitted (thousand tons)", xlab = "Year", main = "Total Emmision from All Sources in Baltimore City")
 dev.off()
